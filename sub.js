@@ -1,4 +1,5 @@
 const clientId = 'hibouair_' + Math.random().toString(16).substr(2, 8)
+import * as mqtt from "mqtt" 
 
 //const host = 'ws://broker.emqx.io:8083/mqtt'
 const host = 'wss://mqtt.flespi.io:443'
@@ -7,8 +8,8 @@ const options = {
   keepalive: 60,
   clientId: clientId,
   protocolId: 'MQTT',
-  username:'jBDIjD3M0UIogn2IiHvBfW3ydn1CAstHTUd2l6CbPapVmftsKNTPxKcAY13mhkS0',
-  password:'jBDIjD3M0UIogn2IiHvBfW3ydn1CAstHTUd2l6CbPapVmftsKNTPxKcAY13mhkS0',
+  username:'eymVF39YbcQEqcuICINSkKlyqu3xs8kvwug2ngOoguRwx93ZHEFSeQgtb7Qr5YMs',
+  password:'eymVF39YbcQEqcuICINSkKlyqu3xs8kvwug2ngOoguRwx93ZHEFSeQgtb7Qr5YMs',
   protocolVersion: 4,
   clean: true,
   reconnectPeriod: 1000,
@@ -39,7 +40,8 @@ client.on('reconnect', () => {
   
   // Received
 client.on('message', (topic, message, packet) => {
-  console.log('Received Message: ' + message.toString() + '\nOn topic: ' + topic)
+  console.log(JSON.parse(message))
+  //console.log('Received Message: ' + message + '\nOn topic: ' + topic)
   document.getElementById('output').innerHTML += message.toString()+"<br>";
 
 })
