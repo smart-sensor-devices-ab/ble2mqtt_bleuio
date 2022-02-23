@@ -1,5 +1,4 @@
 const clientId = 'hibouair_' + Math.random().toString(16).substr(2, 8)
-import * as mqtt from "mqtt" 
 
 //const host = 'ws://broker.emqx.io:8083/mqtt'
 const host = 'wss://mqtt.flespi.io:443'
